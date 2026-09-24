@@ -39,6 +39,10 @@ export UE_INSIGHTS_EXE="/c/Program Files/Epic Games/UE_5.7/Engine/Binaries/Win64
 
 This writes `./out/run1/timerstats.csv` and `./out/run1/threads.csv`. Read `ANALYSIS_GUIDE.md` to understand the columns, or give both files to an AI agent along with that guide.
 
+## Windows GUI (no Git Bash)
+
+`gui/` has a native Windows app (`InsightsExport.exe`) that runs the same export, then lets you keep a list of runs, check each capture for common mistakes, diff two runs per scope, and view UMG widget cost as a tree. Build and usage: [`gui/README.md`](gui/README.md).
+
 ## Drilling into one hitch
 
 ```bash
@@ -56,6 +60,7 @@ This writes `./out/run1/timerstats.csv` and `./out/run1/threads.csv`. Read `ANAL
 | `setup.sh` | One-time setup. Finds `UnrealInsights.exe` and your trace folder, saves them. |
 | `export.sh` | Runs the export. Kills stuck `UnrealInsights.exe` processes, retries if the export fails, checks the CSV is complete. |
 | `frame-drill.sh` | Finds exactly what happened in one slow frame. |
+| `gui/` | Native Windows app: export, run history, capture checks, run diff, widget cost tree. Tests in `gui.Tests/`. |
 | `ANALYSIS_GUIDE.md` | Explains the CSV columns and how to read them, plus how to use this with an AI agent. |
 | `CASE_STUDY.md` | A real example: a UI perf bug found and fixed using this tool. |
 
