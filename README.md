@@ -72,6 +72,17 @@ This writes `./out/run1/timerstats.csv` and `./out/run1/threads.csv`. Read `ANAL
 
 More detail in `ANALYSIS_GUIDE.md`.
 
+## Status (work in progress, 2026-09-24)
+
+Done on this branch:
+- Windows GUI (`gui/`): export, run list, capture checks, run diff, widget cost tree. Builds clean; 41 analysis tests pass; analysis checked against real exports.
+
+Next:
+- **`CASE_STUDY.md` needs a correction.** Its headline "2.70 → 0.63 ms per frame (−77%)" compares *per-call* averages. The change roughly tripled how often the paint scope ran, so the per-call average dropped while total paint per frame barely moved (about −5%). The case study will be rewritten around that lesson, with a second HUD where the same change did save ~1.8 ms/frame as the success example.
+- Manual walkthrough of the GUI, then merge this branch to `main`.
+
+Rule this taught us, now the GUI's default: **compare per-frame cost (session total ÷ frame count), not per-call averages, whenever a change can alter call counts.**
+
 ## License
 
 MIT
